@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Root2 } from "../types/coinType";
+import { coin } from "../types/coinType";
 import { ChevronLeft } from "lucide-react";
 
 export default async function MegamenuContent() {
@@ -26,7 +26,7 @@ export default async function MegamenuContent() {
         <div className="flex gap-10">
             {columns.map((col, colIndex) => (
                 <div key={colIndex} className="flex flex-col gap-x-5 gap-y-6">
-                    {col.map((item: Root2) => (
+                    {col.map((item: coin) => (
                         <div key={item._id} className="flex items-center gap-x-3 cursor-pointer">
                             <div className="rounded-full overflow-hidden">
                                 <Image

@@ -37,19 +37,6 @@ export function getCookie(name: string): string | null {
   return null;
 }
 
-
-export function setSimpleCookie(name: string, value: any, days: number) {
-  const expires = new Date(Date.now() + days * 864e5).toUTCString(); // 864e5 = 24*60*60*1000
-  document.cookie = `${name}=${encodeURIComponent(
-    value
-  )}; expires=${expires}; path=/`;
-}
-export function getSimpleCookie(name: string): string | null {
-  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-  return match ? decodeURIComponent(match[2]) : null;
-}
-
-
 export function eraseCookie(name: string): void {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`; // حذف کوکی
 }

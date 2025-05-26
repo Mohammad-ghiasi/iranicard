@@ -19,24 +19,18 @@ export default function FloatInput({
   ...rest
 }: Props) {
   const [focused, setFocused] = useState(false);
-  const [hasValue, setHasValue] = useState(false);
 
   const handleFocus = () => {
     setFocused(true);
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const isFilled = e.target.value.trim() !== "";
-    setHasValue(isFilled);
-    setFocused(false);
-  };
 
   return (
     <div className="relative w-full">
       {/* لیبل شناور */}
       <label
         htmlFor={name}
-        className={`absolute right-3 px-1 bg-white text-gray-500 text-sm transition-all duration-200 pointer-events-none  ${focused || hasValue
+        className={`absolute right-3 px-1 bg-white text-gray-500 text-sm transition-all duration-200 pointer-events-none  ${focused
             ? "-top-2 text-xs text-blue-500"
             : "top-3 right-4"
           }`}
@@ -50,10 +44,6 @@ export default function FloatInput({
         name={name}
         onFocus={handleFocus}
         {...register}
-        onBlur={(e) => {
-          handleBlur(e);
-          register?.onBlur && register.onBlur(e);
-        }}
         className={`w-full border rounded-md px-3 pt-4 pb-2 text-sm focus:outline-none focus:ring-0 transition-all
     ${error ? "border-red-500 focus:ring-red-200" : "border-gray-300 focus:ring-primary-200"} 
     focus:ring-2 ${className}`}

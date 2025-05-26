@@ -10,7 +10,7 @@ export interface faq {
   faqCategory?: FaqCategory
   faqType: FaqType
   question: Question[]
-  metaData: any
+  metaData: string
 }
 
 export interface FaqCategory {

@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import FloatInput from '@/components/ui/Input';
 import { toast, ToastContainer } from 'react-toastify';
-import { useRouter } from 'next/navigation';
 import { loginSchema } from '@/yup/loginResolver';
 import { setCookie } from '@/utils/cookies';
 
@@ -15,7 +14,6 @@ type LoginFormInputs = {
 };
 
 export default function LoginPage() {
-    const router = useRouter()
     const {
         register,
         handleSubmit,

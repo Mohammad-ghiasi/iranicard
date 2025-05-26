@@ -1,10 +1,11 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import BodyProvider from '../providers/BodyProvider';
+import { User } from '@/types/userType';
 const UserItem = dynamic(() => import('@/components/UserItem'), { ssr: true })
+
 
 export default function UsersPage() {
 
@@ -16,6 +17,8 @@ export default function UsersPage() {
             return res.json();
         },
     });
+    
+
 
     if (isLoading) {
         return (
@@ -31,9 +34,10 @@ export default function UsersPage() {
         <BodyProvider>
             <h1 className="text-xl font-bold mb-6">لیست کاربران</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-10">
-                {data.data.map((user: any) => (
-                    <UserItem user={user} key={user.id} />
+                {data.data.map((user: User, index: number) => (
+                    <UserItem user={user} key={index} />
                 ))}
+
             </div>
         </BodyProvider>
     );

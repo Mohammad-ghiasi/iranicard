@@ -30,7 +30,7 @@ export default function Accordions({ data }: { data: faqs }) {
         </div>
         <div className="">
           {/* map and render 5 items from FAQ data */}
-          {accordionItems.slice(0, 5).map(({ id, title, content, parentId }) => (
+          {accordionItems.slice(0, 5).map(({ id, title, content }) => (
             <AccordionItem
               key={id}
               title={title}

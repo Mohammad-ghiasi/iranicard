@@ -1,5 +1,8 @@
-export default function UserItem({user} : {user: any}) {
+import { User } from "@/types/userType";
 
+export default function UserItem({user} : {user: User}) {
+    console.log(user);
+    
     return (
         <div
             className="flex flex-col gap-y-2 p-4 border border-primary-40 rounded-xl shadow-sm hover:shadow-md cursor-pointer transition-all hover:bg-primary-40"

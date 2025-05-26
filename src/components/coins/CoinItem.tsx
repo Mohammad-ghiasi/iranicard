@@ -1,10 +1,9 @@
 "use client";
-import { Star } from "lucide-react";
-import { Root2 } from "../../types/coinType";
+import { coin } from "../../types/coinType";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CoinItem({ item }: { item: Root2 }) {
+export default function CoinItem({ item }: { item: coin }) {
     const dailyChangePercentText =
         typeof item.dailyChangePercent === 'number'
             ? Number(item.dailyChangePercent).toLocaleString('fa-IR', { maximumFractionDigits: 2 })
